@@ -6,7 +6,8 @@
  const express = require("express");
  const hbs = require("hbs");
  const app = express();
- const PORT = 3000;
+ const path = require('path')
+ const PORT = 3001;
  
  // SET THE TEMPLATE ENGINE
  app.set("view engine", "hbs");
@@ -15,6 +16,10 @@
  // SET THE STATIC FOLDER FOR PUBLIC FILES
  app.use(express.static(__dirname + "/public"));
  
+ // This config is necessary to read data from the body and it will ba available for you in Express under body object
+ app.use(express.json())
+ app.use(express.urlencoded())
+
  // REGISTER THE PARTIAL
  hbs.registerPartials(__dirname + "/views/partials");
  
@@ -23,7 +28,13 @@
  // ROUTES
  app.get("/", (req, res) => {
    console.log(req);
-   res.send("You reached the root of the server");
+   res.render("index");
  });
 
- app.listen(3000)
+ app.post("/search", (req, res)=> {
+   res.render('search')
+ })
+
+
+
+ app.listen(PORT)

@@ -2,8 +2,28 @@
     TOC
 ---}}
 
-<h1>Demonstarting GET method</h1>
+<h1 style="color: blue">  Demonstarting GET method</h1>
 
 <h2>Form filed for seach</h2>
 
-{{!--- > search-form ---}}
+{{#if username}}
+<h3> Hello user {{ username }}</h3>
+{{else}}
+<h3> Hello anonymous user</h3>
+{{/if}}
+
+{{#unless q }}
+<p>You did not query anything</p>
+{{else}}
+<p> Your query was {{ q }}</p>
+{{/unless}}
+
+
+{{#if lang }}
+<p> Your language choice was {{ lang }}</p>
+{{else}}
+<p>You did not choose a language</p>
+{{/if}}
+
+
+{{> form}}

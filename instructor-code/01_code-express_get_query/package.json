@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "lates",
+    "express": "latest",
     "hbs": "latest"
   },
   "devDependencies": {

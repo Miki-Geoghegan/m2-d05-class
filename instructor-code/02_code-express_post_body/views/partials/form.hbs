@@ -2,7 +2,17 @@
     TOC
 ---}}
 
-<form action="/search" method="GET">
+
+{{!--- 
+  when you use POST all the input names will become body fields that you can read in Express
+---}} 
+
+{{!---
+This form takes me to 
+http://localhost:3000/search
+---}}
+
+<form action="/search" method="POST">
   <label>
     City
     <input type="text" name="city">
